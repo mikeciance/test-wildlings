@@ -12,13 +12,12 @@
                     y=e.createElement(n);y.async=!0;y.src='https://cdn.pendo-wildlings.pendo-dev.com/agent/static/'+apiKey+'/pendo.js';
                     z=e.getElementsByTagName(n)[0];z.parentNode.insertBefore(y,z);})(window,document,'script','pendo');
             
-                    // This function creates anonymous visitor IDs in Pendo unless you change the visitor id field to use your app's values
-                    // This function uses the placeholder 'ACCOUNT-UNIQUE-ID' value for account ID unless you change the account id field to use your app's values
-                    // Call this function after users are authenticated in your app and your visitor and account id values are available
+                    // This function creates visitors and accounts in Pendo
+                    // You will need to replace <visitor-id-goes-here> and <account-id-goes-here> with values you use in your app
                     // Please use Strings, Numbers, or Bools for value types.
                     pendo.initialize({
                         visitor: {
-                            id:              'foo'   // Required if user is logged in, default creates anonymous ID
+                            id:              'foo' // Required if user is logged in
                             // email:        // Recommended if using Pendo Feedback, or NPS Email
                             // full_name:    // Recommended if using Pendo Feedback
                             // role:         // Optional
@@ -28,7 +27,7 @@
                         },
             
                         account: {
-                            id:           'bar' // Required if using Pendo Feedback, default uses the value 'ACCOUNT-UNIQUE-ID'
+                            id:              'bar' // Highly recommended, required if using Pendo Feedback
                             // name:         // Optional
                             // is_paying:    // Recommended if using Pendo Feedback
                             // monthly_value:// Recommended if using Pendo Feedback
@@ -38,9 +37,10 @@
             
                             // You can add any additional account level key-values here,
                             // as long as it's not one of the above reserved names.
-                        }
+                        },
+                        apiKey
                     });
             })('6fa72f70-21a3-443d-4608-b0f8436f37cd');
-        </script>
+            </script>
     </body>
 </html>
